@@ -11,7 +11,7 @@ app = Flask(__name__)
 def index():
     return render_template("Jobify-AboutUs.html")
 
-app.config['MONGO_URI'] = "mongodb://localhost:27017"
+app.config['MONGO_URI'] = "mongodb://localhost:27017/Jobify_db"
 app.secret_key = '123'
 mongo = PyMongo(app)
 users_collection = mongo.db.registration
