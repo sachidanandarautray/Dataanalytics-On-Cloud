@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/Admin-style.css"> <!-- Include your CSS file -->
+    <title>Admin Page</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <form method="POST">
+                <div class="logo">
+                    <img src="../static/css/Images/jobifywhite-png.png" alt="Your Logo">
+                </div>
+                <div class="user-info">
+                    <span class="user-id">Candidate ID: 12345</span>
+                    <span class="user-email">Email: candidate@example.com</span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="button-container">
+            <button type="button" class="candidates-btn">Get Candidates</button>
+            <button type="button" class="recruiters-btn">Get Recruiters</button>
+        </div>
+        <div class="main-content" id="content"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const content = document.getElementById("content");
+
+            const candidatesBtn = document.querySelector(".candidates-btn");
+            const recruitersBtn = document.querySelector(".recruiters-btn");
+
+            candidatesBtn.addEventListener("click", function () {
+                content.innerHTML = ""; // Clear the content
+                // Display the candidate list (replace this with your actual data)
+                content.innerHTML = `
+                <h2>Candidates</h2>
+                <ul>
+                    {% for candidate in candidates %}
+                        <li>
+                            <h4>{{ "Name: " ~ candidate.name }}</h4>
+                            <h4>{{  "Email: " ~ candidate.username }}</h4>
+                        </li>
+                    {% endfor %}
+                </ul>
+                                `;
+                            });
+                
+                            recruitersBtn.addEventListener("click", function () {
+                                content.innerHTML = ""; // Clear the content
+                                // Display the recruiter list (replace this with your actual data)
+                                content.innerHTML = `
+                                <h2>Recruiters</h2>
+                <ul>
+                    {% for recruiter in recruiters %}
+                        <li>
+                            <h4>{{  "Name: " ~ recruiter.name }}</h4>
+                            <h4>{{  "Email: " ~ recruiter.username }}</h4>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                `;
+            });
+        });
+    </script>
+</body>
+</html>
+

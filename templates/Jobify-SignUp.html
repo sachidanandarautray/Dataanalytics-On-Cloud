@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/SignUp-style.css">
+    <title>Jobify-Sign In</title>
+</head>
+<body>
+    <div class="bg-image"></div>
+    <div class="content-box">
+            <img src="../static/css/Images/jobifyblack-png.png" alt="Logo" class="logo">
+            <div class="header">
+       <h2>Welcome to Jobify!</h2>
+       <p class="sub-header">Please select if you are a Recruiter or a Candidate</p>
+       <div class="button-container">
+            <button class="button"> <a href="{{ url_for('signupr') }}">RECRUITER</a></button>
+            <button class="button"> <a href="{{ url_for('signupc') }}">CANDIDATE</a></button>
+        </div>
+        <p class="link">Already have an account?   <a href="{{ url_for('login') }}"> Log In</a></p>
+   </div>
+
+        </div>
+</body>
+</html>

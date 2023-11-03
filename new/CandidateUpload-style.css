@@ -1,0 +1,77 @@
+/* Global styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for the header section */
+.header {
+    background-image: url('Images/CandidateHome-bg1.jpg'); /* Replace with the actual path to your background image */
+    background-size: cover;
+    color: white;
+    padding: 30px 0;
+    text-align: center; /* Center-align text content */
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-info {
+    text-align: right;
+}
+.user-id,
+.user-email {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.logo img {
+    max-height: 100px; /* Adjust the maximum height of the logo */
+}
+
+.header-info {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Style for the main content section */
+.main-content {
+    background-color: white;
+    padding: 20px;
+    min-height: 70vh;
+}
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 200px;
+}
+
+.button-container button,
+.button-container .file-label,
+.button-container .updates-btn {
+    display: inline-block;
+    padding: 22px 77px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 30px; /* Adjust margin as needed */
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-container button:hover,
+.button-container .file-label:hover,
+.button-container .updates-btn:hover {
+    background-color: black;
+    color: white;
+}

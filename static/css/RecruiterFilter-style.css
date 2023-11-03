@@ -1,0 +1,105 @@
+/* Global styling */ 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for the header section */
+.header {
+  background-image: url('Images/1.jpg'); /* Replace with the actual path to your background image */
+  background-size: cover;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-right: -120PX;
+}
+.user-details {
+    display: grid;
+    grid-template-rows: auto auto;
+    margin-right: 20px;
+    padding-right: 10px;
+}
+
+.logout-button {
+    background-color: rgba(255, 255, 255, 0.3); 
+    color: white;
+    border: 2px solid white; 
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: white;
+    color: black;
+    border-color: black;
+}
+
+.logo img {
+    max-height: 100px;
+    margin-right: 20px; /* Adjust margin as needed */
+}
+
+/* Style for the main content section */
+.main-content {
+    background-color: white;
+    padding: 20px;
+    min-height: 70vh;
+}
+.filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow filters to wrap to the next line if needed */
+}
+.filter {
+    text-align: center;
+    margin: 60px; /* Add some space around each filter */
+}
+.filter label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.filter select {
+    font-size: 16px; /* Increase font size */
+    border-radius: 10px; /* Add rounded corners */
+    padding: 10px; /* Add padding for more space inside the box */
+    border: 2px solid #ccc; /* Add a border for visibility */
+    width: 200px; /* Set a specific width for the select box */
+}
+#submitButton {
+    font-size: 20px; /* Increase font size */
+    border-radius: 10px; /* Add rounded corners */
+    padding: 12px 24px; /* Add padding for more space inside the button */
+    border: 2px solid black; /* Add a border for visibility */
+    background-color: white; /* White background */
+    color: black; /* Black text color */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 150px;
+}
+
+#submitButton:hover {
+    background-color: black; /* Black background on hover */
+    color: white; /* White text color on hover */
+}
+.candidate-table {
+    /* Add styles for the table if needed */
+}

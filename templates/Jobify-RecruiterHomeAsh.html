@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobify-Recruiter Home</title>
+    <link rel="stylesheet" href="../static/css/RecruiterHome-style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="../static/css/Images/jobifywhite-png.png" alt="Your Logo">
+            </div>
+            <h1>{{ message }}</h1>
+            {% if 'username' in session %}
+            <div class="user-info">
+                <div class="user-details">
+                    <span class="user-email">Email: {{ session['username'] }}</span>
+                </div>
+                <a href="{{ url_for('index') }}">
+                    <button class="logout-button">Logout</button>
+                </a>
+            </div>
+            {% endif %}
+          </div>
+    </header>
+  </head>
+  <main class="main-content">
+      <div class="button-container">
+        <a href="{{ url_for('rf') }}">
+            <button class="candidates-btn">Filter</button>
+        </a>
+        <a href="{{ url_for('rupload_form') }}">
+        <button type="button" class="recruiters-btn">Upload Document</button>
+        </a>
+      </div>
+  </main>
+</body>
+</html>

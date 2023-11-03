@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"> 
+  <head>
+    <meta charset="utf-8">
+    <title>Jobify-Login</title>
+    <link rel="stylesheet" href= "../static/css/Login-style.css">
+  </head>
+  <body>
+    <div class="parent clearfix">
+  <div class="bg-illustration">
+    <img src="../static/css/Images/jobifyblack-png.png" alt="logo" >
+
+    <div class="burger-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+
+  <div class="login">
+    <div class="container">
+      <h1>Login to access to<br />your account</h1>
+
+      <div class="login-form">
+        <form method="POST">
+          <input type="email" placeholder="E-mail Address" name="username">
+          <input type="password" placeholder="Password" name="password">
+
+          <!-- <div class="remember-form">
+            <input type="checkbox">
+            <span>Remember me</span>
+          </div> -->
+          <div class="Sign-Up">
+            <p class="link">New to Jobify?   <a href="{{ url_for('signup') }}"> Sign Up</a></p>
+          </div>
+          {% if error %}
+          <p class="error">{{ error }}</p>
+          {% endif %}
+          <button type="submit">LOG-IN</button>
+
+        </form>
+      </div>
+
+    </div>
+    </div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobify-Candidate Home</title>
+    <link rel="stylesheet" href="../static/css/CandidateHome-style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="../static/css/Images/jobifywhite-png.png" alt="Your Logo">
+            </div>
+            {% if 'username' in session %}
+            <div class="user-info">
+                <div class="user-details">
+                    <span class="user-email">Email: {{ session['username'] }}</span>
+                </div>
+                <a href="{{ url_for('index') }}">
+                    <button class="logout-button">Logout</button>
+                </a>
+            </div>
+            {% endif %} <!-- Add this line to close the if block -->
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="button-container">
+            <a href="{{ url_for('download_file') }}">
+            <button id="extractBtn">Download Template</button>
+            </a>
+            <a href="{{ url_for('upload_form') }}">
+                <button id="uploadBtn">Upload Resume</button>
+            </a>
+            <a href="{{ url_for('joel_data') }}">
+            <button id="extractBtn">View Details</button>
+            </a>
+            <button id="newBtn" disabled>Choose Company</button>
+        </div>
+        <div id="tableContainer"></div>
+    </main>
+</body>
+</html>

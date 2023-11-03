@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumes</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+
+        }
+        .table-container {
+        margin-top: 20px; /* Adjust this value to control the spacing */
+        }
+    </style>
+</head>
+<body>
+    <h1>Resumes</h1>
+
+    <!-- Filter dropdown -->
+    <form action="/" method="get">
+        <label for="cgpa_filter">Filter by CGPA:</label>
+        <select name="cgpa_filter" id="cgpa_filter">
+            <option value="">All</option>
+            <option value="6 to 7">6 to 7</option>
+            <option value="7 to 8">7 to 8</option>
+            <option value="8 to 9">8 to 9</option>
+            <option value="9 to 10">9 to 10</option>
+        </select>
+        <label for="duration_filter">Filter by Duration:</label>
+        <select name="duration_filter" id="duration_filter">
+            <option value="">All</option>
+            <option value="0 to 12">0 to 12 months</option>
+            <option value="13 to 24">13 to 24 months</option>
+            <option value="Above 24">Above 24 months</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+    
+
+
+    <!-- Resume data -->
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>CGPA</th>
+                <th>Year of Experience</th>
+                <th>Email Id</th>
+                
+                <!-- Add other fields as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for resume in resumes %}
+                <tr>
+                    <td>{{ resume.name }}</td>
+                    <td>{{ resume.cgpa }}</td>
+                    <td>{{ resume.duration }}</td>
+                    <td>{{ resume.email }}</td>
+                    
+                    <!-- Add other fields as needed -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+}
+
+.bg-image {
+    background-image: url("Images/SignUp-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-box {
+    background-color: white;
+    width: 100%; /* Adjust width as needed */
+    height: 400px; /* Adjust height as needed */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    position: absolute; /* Add this line */
+    top: 50%; /* Add this line */
+    left: 50%; /* Add this line */
+    transform: translate(-50%, -50%); /* Add this line */
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-width: 20%; /* Adjust width as needed */
+    height: auto; /* Adjust height as needed */
+    margin-bottom: 10px;
+    margin-right: 10px; /* Adjust this margin to move the logo slightly to the right */
+    margin-left: 300px;
+}
+
+.header {
+    flex-grow: 1; /* Take up remaining available space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header h2 {
+  margin-bottom: 10px;
+    margin-top: 0px;
+    margin-right: 5px;
+    margin-left: -200px; /* Adjust this margin to move the headers to the left */
+    font-family: Times New Roman;
+    font-size: 35px;
+}
+
+.sub-header {
+  margin-bottom: 150px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: -200px; /* Adjust this margin to move the headers to the left */
+    font-family: Times New Roman;
+    font-size: 24px;
+
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    margin-top: -100px; /* Add margin for spacing between headers and buttons */
+    margin-left: -200px;
+}
+
+.button {
+    margin: 0 50px; /* Add margin between buttons */
+    padding: 15px 30px;
+    background: linear-gradient(-20deg, #334d5e 0%, #4e7690 100%); /* Adjust button color as needed */
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.button:hover {
+    background: linear-gradient(to top, #09203f 0%, #537895 100%); /* Adjust button color on hover as needed */
+}
+
+.link {
+    text-align: center;
+    margin-top: 20px; /* Adjust the margin as needed */
+    margin-left: -200px;
+    margin-top: 50px;
+}
+
+.link a {
+    color: #888; /* Adjust the color as desired */
+    text-decoration: none;
+}
+
+.link a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+.button-container .button a {
+  color: white;
+  text-decoration: none;
+}
+
+.button-container .button a:hover {
+  text-decoration: none; /* Remove underline on hover */
+}

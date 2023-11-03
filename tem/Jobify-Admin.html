@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobify-Candidate Home</title>
+    <link rel="stylesheet" href="../static/css/Admin-style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <form method="POST">
+            <div class="logo">
+                <img src="../static/css/Images/jobifywhite-png.png" alt="Your Logo">
+            </div>
+            <div class="user-info">
+                <span class="user-id">Candidate ID: 12345</span>
+                <span class="user-email">Email: candidate@example.com</span>
+            </div>
+    </header>
+    <main class="main-content">
+      <div class="button-container">
+        <button id="candidatesBtn">Candidates</button>
+        <button id="recruitersBtn">Recruiters</button>
+      </div>
+        <div id="tableContainer"></div>
+    </main>
+    <script>
+        document.getElementById('candidatesBtn').addEventListener('click', function () {
+            fetch('/get_candidates')
+                .then(response => response.json())
+                .then(data => {
+                    const candidateList = data.candidates.map(candidate => `<li>${candidate}</li>`).join('');
+                    document.getElementById('tableContainer').innerHTML = `<h2>Candidates</h2><ul>${candidateList}</ul>`;
+                });
+        });
+        
+        document.getElementById('recruitersBtn').addEventListener('click', function () {
+            fetch('/get_recruiters')
+                .then(response => response.json())
+                .then(data => {
+                    const recruiterList = data.recruiters.map(recruiter => `<li>${recruiter}</li>`).join('');
+                    document.getElementById('tableContainer').innerHTML = `<h2>Recruiters</h2><ul>${recruiterList}</ul>`;
+                });
+        });
+        
+</script>
+</body>
+</html>

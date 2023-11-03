@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Upload and Conversion</title>
+</head>
+<body>
+    <h1>Upload and Convert PDF</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".pdf" required>
+        
+
+        <button type="submit">Upload</button>
+    </form>
+  
+    
+
+    {% if upload_success %}
+    <form action="/convert" method="POST">
+        <button type="submit">Convert</button>
+    </form>
+    {% endif %}
+
+    {% if pdf_text %}
+    <h2>Extracted Text</h2>
+    <pre>{{ pdf_text }}</pre>
+    {% endif %}
+</body>
+</html>

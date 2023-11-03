@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobify-Recruiter Home</title>
+    <link rel="stylesheet" href="css/RecruiterHome-style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="css/Images/jobifywhite-png.png" alt="Your Logo">
+            </div>
+            <div class="user-info">
+                <span class="user-id">Recruiter ID: 54321</span>
+                <span class="user-email">Email: recruiter@example.com</span>
+            </div>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="filters">
+                      <div class="filter">
+                  <label for="filter1">CGPA</label>
+                  <select id="filter1" name="filter1">
+                      <option value="option1">Option 1</option>
+                      <option value="option2">Option 2</option>
+                      <!-- Add more options as needed -->
+                  </select>
+              </div>
+
+              <div class="filter">
+                  <label for="filter2">Experience</label>
+                  <select id="filter2" name="filter2">
+                      <option value="option1">Option 1</option>
+                      <option value="option2">Option 2</option>
+                      <!-- Add more options as needed -->
+                  </select>
+              </div>
+              <button type="submit" id="submitButton">Submit</button>
+
+        </div>
+
+        <form id="filterForm">
+            <!-- This form will be used for handling the submission -->
+        </form>
+
+        <div class="candidate-table" id="candidateTable">
+            <!-- Table content will be generated using JavaScript -->
+        </div>
+    </main>
+    <script src="js/RecruiterHome.js"></script>
+</body>
+</html>

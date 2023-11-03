@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobify-Candidate Upload</title>
+    <link rel="stylesheet" href="../static/css/CandidateUpload-style.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="../static/css/Images/jobifywhite-png.png" alt="Your Logo">
+            </div>
+            {% if 'username' in session %}
+            <div class="user-info">
+                <div class="user-details">
+                    <span class="user-email">Email: {{ session['username'] }}</span>
+                </div>
+                <a href="{{ url_for('index') }}">
+                    <button class="logout-button">Logout</button>
+                </a>
+            </div>
+            {% endif %}
+    </header>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+    <main class="main-content">
+      <div class="button-container">
+          <input type="file" id="fileInput" style="display: none; "name="file" accept=".pdf" required>
+          <label for="fileInput" class="file-label">Select File</label>
+          <button id="extractBtn">Upload</button>
+      </div>
+        <div id="tableContainer"></div>
+    </main>
+</form>
+{% if upload_success %}
+<form action="/convert" method="POST">
+    <button type="submit">Convert</button>
+</form>
+{% endif %}
+
+{% if pdf_text %}
+<h2>Extracted Text</h2>
+<pre>{{ pdf_text }}</pre>
+{% endif %}
+</body>
+</html>
