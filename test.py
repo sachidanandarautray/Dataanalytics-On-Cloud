@@ -17,7 +17,8 @@ mongo = PyMongo(app)
 users_collection = mongo.db.registration
 collection =mongo.db.mycollection
 users_collection_3=mongo.db.recruiter
-app.config['UPLOAD_FOLDER'] = 'D:/Flask/Cloud/uploads'
+UPLOAD_FOLDER = 'uploads'
+app.config['UPLOAD_FOLDER'] 
 #@app.route('/login')
 #@app.route('/', methods=['GET', 'POST'])
 # def login():
