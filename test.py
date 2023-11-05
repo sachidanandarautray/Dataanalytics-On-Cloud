@@ -17,8 +17,7 @@ mongo = PyMongo(app)
 users_collection = mongo.db.registration
 collection =mongo.db.mycollection
 users_collection_3=mongo.db.recruiter
-UPLOAD_FOLDER = 'uploads'
-app.config['UPLOAD_FOLDER'] 
+app.config['UPLOAD_FOLDER'] = 'uploads'
 #@app.route('/login')
 #@app.route('/', methods=['GET', 'POST'])
 # def login():
