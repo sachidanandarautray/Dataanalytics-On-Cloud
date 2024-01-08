@@ -1,1 +1,102 @@
+#cloud project terraform 
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
 
+#specyfying provider 
+provider "aws" {
+  region     = "ap-south-1"
+  access_key = "AKIASHPTZJ6HEFVEQPPN"
+  secret_key = "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"
+}
+
+#creating security group
+resource "aws_security_group" "jobify_sg" {
+  name        = "jobify-sg"
+  description = "Allows all inbound and outbound traffic."
+  vpc_id      = "vpc-071c4bbd49f539a1f"
+  #no vpc id mentioned 
+
+  ingress { #description not avaialble
+    description = "Allows all inbound traffic and all tcp outbound traffic."
+    from_port   = 0
+    to_port     = 0
+    protocol    = "all"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    description = "allow all outgoing tcp ports"
+    from_port   = 0 #description is not there also in protocol some changes 
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "allow_all_tcp"
+  }
+}
+#creating private key
+resource "tls_private_key" "jobify_rsa_key" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+#creating key pair for jobify
+resource "aws_key_pair" "jobify_key" {
+  key_name   = "jobify-key1"
+  public_key = tls_private_key.jobify_rsa_key.public_key_openssh
+  #saving key to localhost
+  provisioner "local-exec" {
+    command = <<-EOF
+     echo '${tls_private_key.jobify_rsa_key.private_key_pem}' > ./jobify_key.pem
+     chmod 400 ./jobify_key.pem
+  EOF
+  }
+}
+
+resource "aws_instance" "jobify_production_server" {
+  depends_on = [aws_security_group.jobify_sg]
+
+  ami             = "ami-05c0f5389589545b7"     #ami-05c0f5389589545b7   #ami-02e94b011299ef128(this is new one ami id )
+  instance_type   = "t2.micro"                   #c5a.large
+  key_name        = aws_key_pair.jobify_key.key_name
+  security_groups = [aws_security_group.jobify_sg.name]   #some changes in user file 
+  user_data       = file("userdata1.sh")
+
+  root_block_device {
+    volume_size = 20
+    volume_type = "gp2"
+  }
+
+  tags = {
+    "Name" = "jobify-deployement-newserver"   #jobify-deployment-server
+  }
+}
+
+output "print_url" {
+  value = aws_instance.jobify_production_server.public_dns
+
+}
+
+
+
+
+
+# Create a VPC
+#resource "aws_instance" "jobify-instance" {
+#$ami             = "ami-008b85aa3ff5c1b02" #ami-008b85aa3ff5c1b02
+#instance_type   = "t2.micro"
+#key_name        = "jobify-key"
+#security_groups = ["jobify-security"]
+#user_data = "file("data.sh")"
+
+#tags = {
+# "Name" = "deployment-instance"
+# }
+#}
