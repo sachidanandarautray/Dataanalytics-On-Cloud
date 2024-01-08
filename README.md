@@ -56,5 +56,5 @@ Welcome to JOBIFY, a cutting-edge platform transforming the recruitment landscap
 
 ## Key Features
 
-... (rest of your README content)
+
 
