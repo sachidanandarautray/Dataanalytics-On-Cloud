@@ -1,4 +1,4 @@
-# JOBIFY - Revolutionizing Recruitment
+# Jobify - Automated Recruitment Process, Effortless Resume Parsing, and Agile Cloud Deployment
 
 Welcome to JOBIFY, a cutting-edge platform transforming the recruitment landscape for both job seekers and employers. JOBIFY is designed with the belief that job searching and hiring should be intuitive, efficient, and user-centric.
 
